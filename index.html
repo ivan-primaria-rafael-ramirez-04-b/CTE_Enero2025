@@ -24,45 +24,32 @@
     <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.8/dist/index.js"></script>
     <script>
         (() => {
-            setTimeout(() => {
-                const { markmap: MM, mm } = window;
-                const toolbar = new MM.Toolbar();
-                toolbar.attach(mm);
-                const toolbarElement = toolbar.render();
-                toolbarElement.setAttribute("style", "position:absolute;bottom:20px;right:20px");
-                document.body.append(toolbarElement);
+            const { markmap: MM } = window;
+            const mindmap = MM.Markmap.create("#mindmap", null, {
+                nodes: {
+                    link: {
+                        href: (d) => d.href,
+                    },
+                },
             });
+
+            const data = {
+                "t": "Recursos Educativos",
+                "c": [
+                    { "t": "Acompañando la Crianza", "href": "ACOMPAÑANDO_LA_CRIANZA_2021.pdf" },
+                    { "t": "Bitácora Sentido Práctica", "href": "bitacora-sentido-practica-eb.pdf" },
+                    { "t": "Intervención Sentido Práctica", "href": "intervencion-sentido-practica-eb.pdf" },
+                    { "t": "Los bebés en el Jardín", "href": "los_bebes_maternal.pdf" },
+                    { "t": "Programa Sintético Fase 3", "href": "Programa_Sintetico_Fase_3.pdf" },
+                    { "t": "Programa Sintético Fase 4", "href": "Programa_Sintetico_Fase_4.pdf" },
+                    { "t": "Programa Sintético Fase 5", "href": "Programa_Sintetico_Fase_5.pdf" },
+                    { "t": "Niño pequeño, duérmete ya", "href": "Nino-pequeno-duermete-ya.pdf" }
+                ]
+            };
+
+            mindmap.setData(data);
+            mindmap.fit();
         })();
     </script>
-    <script>
-        ((b, L, T, D) => {
-            const H = b();
-            window.mm = H.Markmap.create("svg#mindmap", (L || H.deriveOptions)(D), {
-                "content": "Recursos Educativos",
-                "children": [
-                    { "content": "Acompañando la crianza. Guía para el desarrollo de las sesiones de Educación Inicial", "children": [], "payload": { "href": "ACOMPANANDO_LA_CRIANZA_2021.pdf" } },
-                    { "content": "Cómo enriquecer las prácticas de crianza en torno al trato y la alimentación perceptiva en educación", "children": [
-                        { "content": "Bitácora Sentido Práctica", "children": [], "payload": { "href": "bitacora-sentido-practica-eb.pdf" } },
-                        { "content": "Intervención Sentido Práctica", "children": [], "payload": { "href": "intervencion-sentido-practica-eb.pdf" } }
-                    ] },
-                    { "content": "Los bebés en el Jardín", "children": [], "payload": { "href": "los_bebes_maternal.pdf" } },
-                    { "content": "Materiales de apoyo a la apropiación del Plan y Programas de Estudio 2022", "children": [
-                        { "content": "Artes: ¿Cómo pueden las artes y las experiencias estéticas contribuir a la transformación educativa?", "children": [], "payload": { "href": "Artes_-¿Como-pueden-las-artes-y-las-experiencias-esteticas-contribuir-a-la-transformacion-educativa-1 2.pdf" } },
-                        { "content": "Seguimiento y apropiación del plan y programas de estudio 2022", "children": [], "payload": { "href": "Seguimiento-y-apropiación-del-plan-y-programas-de-estudio-2022-1.pdf" } }
-                    ] },
-                    { "content": "Fichas Didácticas", "children": [
-                        { "content": "Ficha 3°: ¿Cómo se mueven y desplazan los animales?", "children": [], "payload": { "href": "Ficha_3°.-¿Como-se-mueven-y-desplazan-los-animales_.pdf" } },
-                        { "content": "Ficha 2°: ¿Cómo son las plantas y animales de mi comunidad y otros lugares de México?", "children": [], "payload": { "href": "Ficha_2°_¿Como-son-las-plantas-y-animales-de-mi-comunidad-y-otros-lugares-de-Mexico_.pdf" } },
-                        { "content": "Ficha 4°: ¿Cómo se alimentan los seres vivos?", "children": [], "payload": { "href": "Ficha_4°_¿Como-se-alimentan-los-seres-vivos_.pdf" } },
-                        { "content": "Ficha 5°: ¿Cómo se reproducen las plantas?", "children": [], "payload": { "href": "Ficha_5°--¿Como-se-reproducen-las-plantas_.pdf" } },
-                        { "content": "Ficha 6°: ¿Cómo han cambiado los seres vivos a través del tiempo?", "children": [], "payload": { "href": "Ficha_6°_¿Como-han-cambiado-los-seres-vivos-a-traves-del-tiempo_.pdf" } },
-                        { "content": "Ficha 1°: ¿Cuáles son las características naturales de mi comunidad?", "children": [], "payload": { "href": "Ficha_1°-•_¿Cuales-son-las-caracteristicas-naturales-de-mi-comunidad_.pdf" } }
-                    ] },
-                    { "content": "Desarrollo de habilidades matemáticas - Primaria Fase 3", "children": [], "payload": { "href": "Desarrollo-de-habilidades-matematicas_Primaria_Fase-3.pdf" } },
-                    { "content": "La enseñanza y el aprendizaje de la lectura y escritura - Primaria Fase 3", "children": [], "payload": { "href": "La-ensenanza-y-el-aprendizaje-de-la-lectura-y-escritura_Primaria_Fase-3.pdf" } },
-                    { "content": "Artes para el desarrollo del pensamiento crítico", "children": [], "payload": { "href": "Artes_-Artes-para-el-desarrollo-del-pensamiento-critico.pdf" } },
-                    { "content": "Plan de Estudio ISBN Electrónico", "children": [], "payload": { "href": "Plan-de-Estudio-ISBN-ELECTRONICO.pdf" } },
-                    { "content": "Artes: ¿Cómo contribuyen las artes y las experiencias estéticas a la transformación educativa?", "children": [], "payload": { "href": "Artes_¿Como-contribuyen-las-artes-y-las-experiencias-esteticas-a-la-transformacion-educativa.pdf" } },
-                    { "content": "Artes: Las artes y las experiencias estéticas pueden mejorar los procesos educativos", "children": [], "payload": { "href": "Artes_Las-artes-y-las-experiencias-esteticas-pueden-mejorar-los-procesos-educativos-1.pdf" } },
-                    { "content": "Artes: Las artes y las experiencias estéticas pueden contribuir a la integración
-::contentReference[oaicite:0]{index=0}
+</body>
+</html>
